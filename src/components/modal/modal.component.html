@@ -3,42 +3,44 @@
   <div class="modal" [ngClass]="{ show: showModal }">
     <div class="modal-content">
       <div id="header-modal">
-        <p id="title">Igreja Nsa Sra Conceição</p>
-        <i (click)="toggleModal()" class="pi pi-times"></i>
+        <p id="title">{{shelter?.nome}}</p>
+        <i (click)="toggleModal()" class="close pi pi-times"></i>
       </div>
-      <div class="chip-modal">300 vagas disponíveis</div>
+      <div class="chip-modal">{{shelterById?.vacancy}} vagas disponíveis</div>
     </div>
     <hr id="hr-modal" />
 
     <div class="contact-modal-infos">
       <img class="img-contact" src="../../assets/icons/phone.png" alt="" />
-      <p>(55) 98765-4321</p>
+      <p>{{shelter?.telefone}}</p>
     </div>
     <div class="contact-modal-infos">
       <img class="img-contact" src="../../assets/icons/pin.png" alt="" />
-      <p>R. do Umbú - Porto Alegre, RS, 95707-356, Brasil</p>
+      <p>{{shelter?.address | uppercase }}</p>
     </div>
 
     <p id="text-modal">Necessita de:</p>
-    <div class="chip-modal">Recolher entulho</div>
-    <div class="chip-modal">Limpeza pesada</div>
-    <div class="chip-modal">Equipamentos de limpeza</div>
-    <div class="chip-modal">Utensílios de cozinha</div>
+    <textarea disabled class="textarea">{{shelterById?.needs}}</textarea>
     <hr id="hr-modal" />
+    <div class="container-button">
 
-    <button class="custom-button1">
-      <img src="../../assets/icons/waze.png" alt="Ícone" class="custom-icon" />
-
-      <span class="custom-text">ABRIR WAZE</span>
-    </button>
-    <button class="custom-button2">
-      <img
+      <button class="custom-button1">
+        <img src="../../assets/icons/waze.png" alt="Ícone" class="custom-icon" />
+        <a href="https://waze.com/ul?ll={{shelter?.latitude}},{{shelter?.longitude}}&navigate=yes" target="_blank">
+          <span class="custom-text">ABRIR WAZE</span>
+        </a>
+      </button>
+      <button class="custom-button2">
+        <img
         src="../../assets/icons/whatsapp.png"
         alt="Ícone"
         class="custom-icon"
-      />
+        />
 
-      <span class="custom-text">ABRIR WHATSAPP</span>
-    </button>
+        <a href="whatsapp://send?phone=+55{{shelterById?.phone}}">
+          <span class="custom-text">ABRIR WHATSAPP</span>
+        </a>
+      </button>
+    </div>
+    </div>
   </div>
-</div>
