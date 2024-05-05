@@ -1,12 +1,17 @@
+import { RegisterHelpService } from './../../core/services/register-help/register-help.service';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import L from 'leaflet';
+import { ShelterService } from './../../core/services/shelter/shelter.service';
+import { Shelters } from '../../core/models/shelter/shelter';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-map',
   standalone: true,
   templateUrl: './map.component.html',
   styleUrl: './map.component.css',
-  imports: [],
+  imports: [HttpClientModule],
+  providers: [ShelterService, RegisterHelpService]
 })
 export class MapComponent implements OnInit, AfterViewInit {
   private map!: L.Map;
@@ -22,9 +27,13 @@ export class MapComponent implements OnInit, AfterViewInit {
     L.marker([-30.052288, -51.087329], { icon: this.greenIcon }),
   ];
 
-  constructor() {}
+ private shelters!: Shelters
 
-  ngOnInit() {}
+  constructor(private shelterService: ShelterService, private registerHelpService: RegisterHelpService) {}
+
+  ngOnInit() {
+    this.getAllShelters();
+  }
 
   ngAfterViewInit() {
     this.initializeMap();
@@ -56,5 +65,11 @@ export class MapComponent implements OnInit, AfterViewInit {
     );
 
     this.map.fitBounds(bounds);
+  }
+
+  private getAllShelters(){
+    this.shelterService.getAllShelters().subscribe((data: any) => {
+      this.shelters = data.data;
+    })
   }
 }
