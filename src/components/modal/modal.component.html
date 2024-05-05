@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="overlay" [ngClass]="{ show: showModal }"></div>
+  <div class="modal" [ngClass]="{ show: showModal }">
+    <div class="modal-content">
+      <div id="header-modal">
+        <p id="title">Igreja Nsa Sra Conceição</p>
+        <i (click)="toggleModal()" class="pi pi-times"></i>
+      </div>
+      <div class="chip-modal">300 vagas disponíveis</div>
+    </div>
+    <hr id="hr-modal" />
+
+    <div class="contact-modal-infos">
+      <img class="img-contact" src="../../assets/icons/phone.png" alt="" />
+      <p>(55) 98765-4321</p>
+    </div>
+    <div class="contact-modal-infos">
+      <img class="img-contact" src="../../assets/icons/pin.png" alt="" />
+      <p>R. do Umbú - Porto Alegre, RS, 95707-356, Brasil</p>
+    </div>
+
+    <p id="text-modal">Necessita de:</p>
+    <div class="chip-modal">Recolher entulho</div>
+    <div class="chip-modal">Limpeza pesada</div>
+    <div class="chip-modal">Equipamentos de limpeza</div>
+    <div class="chip-modal">Utensílios de cozinha</div>
+    <hr id="hr-modal" />
+
+    <button class="custom-button1">
+      <img src="../../assets/icons/waze.png" alt="Ícone" class="custom-icon" />
+
+      <span class="custom-text">ABRIR WAZE</span>
+    </button>
+    <button class="custom-button2">
+      <img
+        src="../../assets/icons/whatsapp.png"
+        alt="Ícone"
+        class="custom-icon"
+      />
+
+      <span class="custom-text">ABRIR WHATSAPP</span>
+    </button>
+  </div>
+</div>

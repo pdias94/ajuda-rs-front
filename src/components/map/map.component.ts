@@ -1,7 +1,6 @@
 import { RegisterHelpService } from './../../core/services/register-help/register-help.service';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import L from 'leaflet';
-import { InputSearchComponent } from '../input-search/input-search.component';
 import { ShelterService } from './../../core/services/shelter/shelter.service';
 import { Shelters } from '../../core/models/shelter/shelter';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,15 +10,21 @@ import { HttpClientModule } from '@angular/common/http';
   standalone: true,
   templateUrl: './map.component.html',
   styleUrl: './map.component.css',
-  imports: [InputSearchComponent, HttpClientModule],
+  imports: [HttpClientModule],
   providers: [ShelterService, RegisterHelpService]
 })
 export class MapComponent implements OnInit, AfterViewInit {
   private map!: L.Map;
+
+  greenIcon = L.icon({
+    iconUrl: '../../assets/icons/shelter.png',
+    iconSize: [30, 30],
+  });
+
   markers: L.Marker[] = [
-    L.marker([-30.052288, -51.177329]),
-    L.marker([-30.052288, -51.077329]),
-    L.marker([-30.052288, -51.087329]),
+    L.marker([-30.052288, -51.177329], { icon: this.greenIcon }),
+    L.marker([-30.052288, -51.077329], { icon: this.greenIcon }),
+    L.marker([-30.052288, -51.087329], { icon: this.greenIcon }),
   ];
 
  private shelters!: Shelters
@@ -43,7 +48,7 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   private initializeMap() {
     const baseMapURl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    this.map = L.map('map').setView(
+    this.map = L.map('map', { zoomControl: false }).setView(
       [this.latitude, this.longitude],
       this.zoomLevel
     );
