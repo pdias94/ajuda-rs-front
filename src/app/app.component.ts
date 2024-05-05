@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { MapComponent } from '../components/map/map.component';
 import { InputSearchComponent } from '../components/input-search/input-search.component';
+import { MapComponent } from '../components/map/map.component';
 
 @Component({
   selector: 'app-root',
