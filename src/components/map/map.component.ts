@@ -1,20 +1,25 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import L from 'leaflet';
-import { InputSearchComponent } from '../input-search/input-search.component';
 
 @Component({
   selector: 'app-map',
   standalone: true,
   templateUrl: './map.component.html',
   styleUrl: './map.component.css',
-  imports: [InputSearchComponent],
+  imports: [],
 })
 export class MapComponent implements OnInit, AfterViewInit {
   private map!: L.Map;
+
+  greenIcon = L.icon({
+    iconUrl: '../../assets/icons/shelter.png',
+    iconSize: [30, 30],
+  });
+
   markers: L.Marker[] = [
-    L.marker([-30.052288, -51.177329]),
-    L.marker([-30.052288, -51.077329]),
-    L.marker([-30.052288, -51.087329]),
+    L.marker([-30.052288, -51.177329], { icon: this.greenIcon }),
+    L.marker([-30.052288, -51.077329], { icon: this.greenIcon }),
+    L.marker([-30.052288, -51.087329], { icon: this.greenIcon }),
   ];
 
   constructor() {}
@@ -34,7 +39,7 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   private initializeMap() {
     const baseMapURl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    this.map = L.map('map').setView(
+    this.map = L.map('map', { zoomControl: false }).setView(
       [this.latitude, this.longitude],
       this.zoomLevel
     );

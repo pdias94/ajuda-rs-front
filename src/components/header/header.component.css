@@ -1,0 +1,67 @@
+.header-container {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  background-color: white;
+  padding: 10px;
+  width: 328px;
+  height: 48px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 4px 4px 5px #aaaaaa;
+  justify-content: space-between;
+}
+
+#infos-header {
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+#circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #0468ff;
+  margin-right: 10px;
+  border: 2px solid #0b48a5;
+}
+
+#text-header {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  color: #10213a;
+}
+
+#number-of-shelters {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.vertical-hr {
+  border: none;
+  border-left: 1px solid rgba(0, 0, 0, 0.205);
+  height: 35px;
+  width: 0;
+  margin: 0 10px;
+}
+
+.pi-replay {
+  color: #0468ff;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  font-size: 18px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#button-header {
+  display: flex;
+  align-items: center;
+}
