@@ -17,7 +17,7 @@ export class RegisterHelpService {
 
 
   public getAllRequestsForHelp() : Observable<RequestHelpResponse>{
-  return this.httpClient.get<RequestHelpResponse>(`/api/requests`)
+  return this.httpClient.get<RequestHelpResponse>(`${this.baseApi}/requests`)
   }
 
   public createRequestHelp(request: RequestHelp): Observable<RequestHelpResponse>{

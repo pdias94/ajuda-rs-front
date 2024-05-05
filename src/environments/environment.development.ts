@@ -1,3 +1,3 @@
 export const environment = {
-  baseApi: "http://3.145.0.122:4000"
+  baseApi: "https://ajuda-api.abrigars.com.br"
 };

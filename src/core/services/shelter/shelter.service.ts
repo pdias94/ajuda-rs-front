@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
-import { Shelter, Shelters } from '../../models/shelter/shelter';
+import { ShelterById } from '../../models/shelter/shelter-by-id';
+import { Shelters } from '../../models/shelter/shelters';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class ShelterService {
     return this.httpClient.get<Shelters>(`${this.baseApi}/shelters`)
   }
 
-  public getShelterById(id: string): Observable<Shelter>{
-    return this.httpClient.get<Shelter>(`${this.baseApi}/shelter/${id}`)
+  public getShelterById(id: string): Observable<ShelterById>{
+    return this.httpClient.get<ShelterById>(`${this.baseApi}/shelter/${id}`)
   }
 }
