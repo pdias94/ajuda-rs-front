@@ -1,5 +1,5 @@
 .header-container {
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
