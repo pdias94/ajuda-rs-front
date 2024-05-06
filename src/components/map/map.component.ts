@@ -124,6 +124,7 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   refreshShelters(){
+    this.visibleModal = false;
     this.getAllShelters();
   }
 }
