@@ -20,26 +20,21 @@
     </div>
 
     <p id="text-modal">Necessita de:</p>
-    <textarea disabled class="textarea">{{shelterById?.needs}}</textarea>
+    <textarea readonly class="textarea">{{shelterById?.needs}}</textarea>
     <hr id="hr-modal" />
     <div class="container-button">
 
-      <button class="custom-button1">
+      <button class="custom-button1" (click)="generateLinkForWaze(shelter?.latitude, shelter?.longitude)">
         <img src="../../assets/icons/waze.png" alt="Ícone" class="custom-icon" />
-        <a href="https://waze.com/ul?ll={{shelter?.latitude}},{{shelter?.longitude}}&navigate=yes" target="_blank">
           <span class="custom-text">ABRIR WAZE</span>
-        </a>
       </button>
-      <button class="custom-button2">
+      <button class="custom-button2" (click)="generateLinkForWhatsapp(shelterById?.phone)">
         <img
         src="../../assets/icons/whatsapp.png"
         alt="Ícone"
         class="custom-icon"
         />
-
-        <a href="whatsapp://send?phone=+55{{shelterById?.phone}}">
           <span class="custom-text">ABRIR WHATSAPP</span>
-        </a>
       </button>
     </div>
     </div>

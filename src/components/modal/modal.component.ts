@@ -30,4 +30,19 @@ export class ModalComponent implements OnChanges{
     this.showModal = false;
     this.modalClosed.emit();
   }
+
+  generateLinkForWhatsapp(phone?: string){
+    if(phone == null || phone == undefined) return;
+    const cleanNumber = phone?.replace(/[\(\)\-\s]/g, '');
+
+    const linkWhatsapp = `https://wa.me/+55${cleanNumber}`;
+    window.open(linkWhatsapp, '_blank');
+  }
+
+  generateLinkForWaze(latitude?: number, longitude?: number){
+    if(latitude != null && longitude != null){
+    const link = `https://waze.com/ul?ll=${latitude},${longitude}&navigate=yes`
+    window.open(link, '_blank');
+    }
+  }
 }
