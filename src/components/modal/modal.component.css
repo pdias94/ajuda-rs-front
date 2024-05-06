@@ -76,6 +76,12 @@
   margin-right: 10px;
 }
 
+.container-button {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 #text-modal {
   font-size: 14px;
   font-family: "Roboto", sans-serif;
@@ -123,17 +129,16 @@
   vertical-align: middle;
 }
 
-.close{
+.close {
   cursor: pointer;
 }
 
-.textarea{
+.textarea {
   padding: 5px;
   border-radius: 10px;
   width: 100%;
   height: 6rem;
   resize: none;
-
   background-color: #f0f0f0;
   color: black;
   cursor: not-allowed;
