@@ -4,7 +4,8 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {
   provideAnimations
 } from '@angular/platform-browser/animations';
-import L from 'leaflet';
+import * as L from "leaflet";
+import "leaflet.markercluster";
 import { Shelter, Shelters } from '../../core/models/shelter/shelters';
 import { HeaderComponent } from '../header/header.component';
 import { ModalComponent } from '../modal/modal.component';
@@ -26,6 +27,8 @@ import { ShelterById } from '../../core/models/shelter/shelter-by-id';
 })
 export class MapComponent implements OnInit, AfterViewInit {
   private map!: L.Map;
+  private markersCluster = L.markerClusterGroup();
+  
   visibleModal = false;
 
   greenIcon = L.icon({
@@ -34,7 +37,7 @@ export class MapComponent implements OnInit, AfterViewInit {
   });
 
   markers: L.Marker[] = [];
-
+  
   private shelters!: Shelters;
   public shelter!: Shelter | undefined
   public shelterById!: ShelterById | undefined
@@ -67,7 +70,10 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   private addMarkers() {
-    this.markers.forEach((marker) => marker.addTo(this.map));
+    this.markersCluster.clearLayers;
+    this.markersCluster.refreshClusters;
+    this.markersCluster.addLayers(this.markers);
+    this.map.addLayer(this.markersCluster);
   }
 
   private centerMap() {
