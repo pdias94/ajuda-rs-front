@@ -19,15 +19,17 @@
 
 .modal {
   position: fixed;
-  top: 50%;
+  top: 80px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   background-color: white;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   z-index: 1001;
   display: none;
-  min-width: 330px;
+  max-height: 75% !important;
+  overflow-y: auto !important;
+  min-height: 235px !important;
 }
 
 .modal.show {

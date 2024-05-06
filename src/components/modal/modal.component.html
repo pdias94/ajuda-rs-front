@@ -3,39 +3,48 @@
   <div class="modal" [ngClass]="{ show: showModal }">
     <div class="modal-content">
       <div id="header-modal">
-        <p id="title">{{shelter?.nome}}</p>
+        <p id="title">{{ shelter?.nome }}</p>
         <i (click)="toggleModal()" class="close pi pi-times"></i>
       </div>
-      <div class="chip-modal">{{shelterById?.vacancy}} vagas disponíveis</div>
+      <div class="chip-modal">{{ shelterById?.vacancy }} vagas disponíveis</div>
     </div>
     <hr id="hr-modal" />
 
     <div class="contact-modal-infos">
       <img class="img-contact" src="../../assets/icons/phone.png" alt="" />
-      <p>{{shelter?.telefone}}</p>
+      <p>{{ shelter?.telefone }}</p>
     </div>
     <div class="contact-modal-infos">
       <img class="img-contact" src="../../assets/icons/pin.png" alt="" />
-      <p>{{shelter?.address | uppercase }}</p>
+      <p>{{ shelter?.address | uppercase }}</p>
     </div>
 
     <p id="text-modal">Necessita de:</p>
-    <textarea readonly class="textarea">{{shelterById?.needs}}</textarea>
+    <textarea readonly class="textarea">{{ shelterById?.needs }}</textarea>
     <hr id="hr-modal" />
     <div class="container-button">
-
-      <button class="custom-button1" (click)="generateLinkForWaze(shelter?.latitude, shelter?.longitude)">
-        <img src="../../assets/icons/waze.png" alt="Ícone" class="custom-icon" />
-          <span class="custom-text">ABRIR WAZE</span>
-      </button>
-      <button class="custom-button2" (click)="generateLinkForWhatsapp(shelterById?.phone)">
+      <button
+        class="custom-button1"
+        (click)="generateLinkForWaze(shelter?.latitude, shelter?.longitude)"
+      >
         <img
-        src="../../assets/icons/whatsapp.png"
-        alt="Ícone"
-        class="custom-icon"
+          src="../../assets/icons/waze.png"
+          alt="Ícone"
+          class="custom-icon"
         />
-          <span class="custom-text">ABRIR WHATSAPP</span>
+        <span class="custom-text">ABRIR WAZE</span>
       </button>
-    </div>
+      <button
+        class="custom-button2"
+        (click)="generateLinkForWhatsapp(shelterById?.phone)"
+      >
+        <img
+          src="../../assets/icons/whatsapp.png"
+          alt="Ícone"
+          class="custom-icon"
+        />
+        <span class="custom-text">ABRIR WHATSAPP</span>
+      </button>
     </div>
   </div>
+</div>
